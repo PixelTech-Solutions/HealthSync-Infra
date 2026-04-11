@@ -2,9 +2,18 @@ name: Terraform CI/CD
 
 on:
   push:
-    branches: [ "chanidu-dev" ]
+    branches: ["chanidu-dev"]
+
   pull_request:
-  workflow_dispatch:   # 👈 allows manual destroy trigger
+
+  workflow_dispatch:   # manual destroy trigger
+
+# -------------------------
+# REQUIRED FOR OIDC LOGIN
+# -------------------------
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
 
@@ -28,7 +37,7 @@ jobs:
           client-id: ${{ secrets.ARM_CLIENT_ID }}
           tenant-id: ${{ secrets.ARM_TENANT_ID }}
           subscription-id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-          client-secret: ${{ secrets.ARM_CLIENT_SECRET }}
+          auth-type: OIDC
 
       - name: Terraform Init
         run: terraform init
@@ -50,12 +59,12 @@ jobs:
 # APPLY (MANUAL APPROVAL)
 # -------------------------
   apply:
-    name: Apply (Manual)
+    name: Apply (Manual Approval)
     runs-on: ubuntu-latest
     needs: validate-plan
 
     environment:
-      name: production   # 👈 add required reviewers in GitHub settings
+      name: production   # requires approval in GitHub settings
 
     steps:
       - name: Checkout
@@ -72,30 +81,29 @@ jobs:
       - name: Azure Login
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.ARM_CLIENT_ID }} 
-          tenant-id: ${{ secrets.ARM_TENANT_ID }} 
-          subscription-id: ${{ secrets.ARM_SUBSCRIPTION_ID }} 
-          client-secret: ${{ secrets.ARM_CLIENT_SECRET }}
+          client-id: ${{ secrets.ARM_CLIENT_ID }}
+          tenant-id: ${{ secrets.ARM_TENANT_ID }}
+          subscription-id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+          auth-type: OIDC
 
       - name: Terraform Init
         run: terraform init
 
       - name: Terraform Apply
-        run: terraform apply tfplan
+        run: terraform apply -auto-approve tfplan
 
 
 # -------------------------
-# DESTROY (MANUAL + DANGEROUS)
+# DESTROY (MANUAL + SAFE)
 # -------------------------
   destroy:
-    name: Destroy Infrastructure (Manual)
+    name: Destroy Infrastructure
     runs-on: ubuntu-latest
 
-    # 👇 only runs when manually triggered
     if: github.event_name == 'workflow_dispatch'
 
     environment:
-      name: production   # 👈 require approval before destroy
+      name: production   # requires approval before destroy
 
     steps:
       - name: Checkout
@@ -110,7 +118,7 @@ jobs:
           client-id: ${{ secrets.ARM_CLIENT_ID }}
           tenant-id: ${{ secrets.ARM_TENANT_ID }}
           subscription-id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-          client-secret: ${{ secrets.ARM_CLIENT_SECRET }}
+          auth-type: OIDC
 
       - name: Terraform Init
         run: terraform init
