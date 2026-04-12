@@ -8,12 +8,7 @@ terraform {
     }
   }
 
-  backend "azurerm" {
-    resource_group_name  = "your-existing-rg"
-    storage_account_name = "chanidustate123"
-    container_name       = "tfstate"
-    key                  = "dev.terraform.tfstate"
-  }
+  backend "azurerm" {}
 }
 
 provider "azurerm" {
