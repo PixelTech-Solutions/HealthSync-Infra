@@ -23,6 +23,7 @@ permissions:
 
 jobs:
   dev:
+    environment: dev
     uses: PixelTech-Solutions/Terraform/.github/workflows/terraform.yml@main
     with:
       working_directory: ./infra/healthsync
