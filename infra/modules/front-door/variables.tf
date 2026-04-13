@@ -51,7 +51,14 @@ variable "routes" {
     supported_protocols    = optional(list(string), ["Http", "Https"])
     https_redirect_enabled = optional(bool, true)
     forwarding_protocol    = optional(string, "HttpsOnly")
+    rule_set_key           = optional(string)
   }))
+}
+
+variable "enable_spa_rewrite" {
+  description = "Enable SPA URL rewrite rule set for client-side routing"
+  type        = bool
+  default     = false
 }
 
 variable "tags" {
