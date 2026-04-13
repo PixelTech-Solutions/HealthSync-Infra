@@ -47,7 +47,7 @@ module "front_door" {
     }
     api-origin = {
       origin_group_key = "api"
-      host_name        = module.ca_api_gateway.latest_revision_fqdn
+      host_name        = module.ca_api_gateway.ingress_fqdn
     }
   }
 
