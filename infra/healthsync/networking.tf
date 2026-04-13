@@ -27,7 +27,7 @@ module "front_door" {
   source              = "../modules/front-door"
   name                = local.fd_name
   resource_group_name = module.resource_group.name
-  endpoint_name       = "healthsync"
+  endpoint_name       = "healthsync-${var.environment}"
   sku_name            = "Standard_AzureFrontDoor"
   tags                = local.common_tags
 
