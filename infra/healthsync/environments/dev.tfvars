@@ -2,7 +2,7 @@
 
 environment  = "dev"
 location     = "eastus"
-project_name = "healthsync"
+project_name = "healthsyncc"
 
 # ── ACR ───────────────────────────────────────────────────────────────────────
 acr_sku = "Basic"
