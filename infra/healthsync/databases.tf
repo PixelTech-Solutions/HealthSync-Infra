@@ -5,11 +5,6 @@
 # ── Azure Cosmos DB (MongoDB API, Serverless) ─────────────────────────────────
 # 4 databases: healthsync_auth, _patients, _prescriptions, _notifications
 
-import {
-  to = module.cosmos_db.azurerm_cosmosdb_account.this
-  id = "/subscriptions/327ea493-a875-40f7-8bd3-85db479616f8/resourceGroups/rg-healthsyncc-dev/providers/Microsoft.DocumentDB/databaseAccounts/cosmos-healthsyncc-dev"
-}
-
 module "cosmos_db" {
   source              = "../modules/cosmos-db"
   name                = local.cosmos_name
