@@ -53,15 +53,15 @@ module "front_door" {
 
   routes = {
     api-route = {
-      origin_group_key = "api"
-      origin_keys      = ["api-origin"]
-      patterns_to_match = ["/api/*"]
+      origin_group_key    = "api"
+      origin_keys         = ["api-origin"]
+      patterns_to_match   = ["/api/*"]
       forwarding_protocol = "HttpsOnly"
     }
     frontend-route = {
-      origin_group_key = "frontend"
-      origin_keys      = ["frontend-origin"]
-      patterns_to_match = ["/*"]
+      origin_group_key    = "frontend"
+      origin_keys         = ["frontend-origin"]
+      patterns_to_match   = ["/*"]
       forwarding_protocol = "HttpsOnly"
     }
   }

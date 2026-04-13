@@ -1,17 +1,17 @@
 locals {
   # ── Naming ──────────────────────────────────────────────────────────────────
   # Matches actual deployed resource names: {type}-{project}-{env}
-  env       = var.environment
-  rg_name   = "rg-${var.project_name}-${local.env}"
-  acr_name  = "cr${var.project_name}"
-  kv_name   = "kv-${var.project_name}-${local.env}"
-  cae_name  = "cae-${var.project_name}-${local.env}"
-  id_name   = "id-${var.project_name}-${local.env}"
-  fd_name   = "fd-${var.project_name}"
-  sb_name   = "sb-${var.project_name}-${local.env}"
-  st_name   = "st${var.project_name}web"
-  acs_name  = "acs-${var.project_name}-${local.env}"
-  ecs_name  = "ecs-${var.project_name}-${local.env}"
+  env      = var.environment
+  rg_name  = "rg-${var.project_name}-${local.env}"
+  acr_name = "cr${var.project_name}"
+  kv_name  = "kv-${var.project_name}-${local.env}"
+  cae_name = "cae-${var.project_name}-${local.env}"
+  id_name  = "id-${var.project_name}-${local.env}"
+  fd_name  = "fd-${var.project_name}"
+  sb_name  = "sb-${var.project_name}-${local.env}"
+  st_name  = "st${var.project_name}web"
+  acs_name = "acs-${var.project_name}-${local.env}"
+  ecs_name = "ecs-${var.project_name}-${local.env}"
 
   # Database resource names
   cosmos_name = "cosmos-${var.project_name}-${local.env}"
