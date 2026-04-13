@@ -1,0 +1,21 @@
+name: "Infrastructure - Dev"
+
+on:
+  push:
+    branches: [main, Piyumal]
+    paths: [infra/**]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  dev:
+    uses: PixelTech-Solutions/Terraform/.github/workflows/terraform.yml@main
+    with:
+      working_directory: ./infra/healthsync
+      environment: dev
+      project_name: healthsync
+      service_name: healthsync
+    secrets: inherit
