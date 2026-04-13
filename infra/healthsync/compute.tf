@@ -280,6 +280,8 @@ module "ca_payment_service" {
     { name = "DB_NAME", value = "healthsync_payments" },
     { name = "DB_SSL", value = "true" },
     { name = "STRIPE_SECRET_KEY", secret_name = "stripe-secret-key" },
+    { name = "FRONTEND_URL", value = "https://${module.front_door.endpoint_fqdn}" },
+    { name = "FRONTEND_URL", value = "https://${module.front_door.endpoint_fqdn}" },
   ]
 }
 
