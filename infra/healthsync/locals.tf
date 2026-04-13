@@ -53,7 +53,7 @@ locals {
   # Cosmos DB per-database connection strings
   cosmos_db_uris = {
     for db in local.cosmos_databases : db => replace(
-      module.cosmos_db.connection_strings[0],
+      module.cosmos_db.primary_mongodb_connection_string,
       "10255/?",
       "10255/${db}?"
     )

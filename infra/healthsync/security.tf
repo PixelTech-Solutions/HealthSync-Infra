@@ -48,7 +48,7 @@ resource "azurerm_key_vault_secret" "google_client_id" {
 
 resource "azurerm_key_vault_secret" "cosmos_connection" {
   name         = "cosmos-connection"
-  value        = module.cosmos_db.connection_strings[0]
+  value        = module.cosmos_db.primary_mongodb_connection_string
   key_vault_id = module.key_vault.id
 
   depends_on = [azurerm_role_assignment.deployer_kv_officer]

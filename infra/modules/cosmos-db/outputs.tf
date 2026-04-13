@@ -14,9 +14,9 @@ output "primary_key" {
   sensitive   = true
 }
 
-output "connection_strings" {
-  description = "Cosmos DB connection strings"
-  value       = azurerm_cosmosdb_account.this.connection_strings
+output "primary_mongodb_connection_string" {
+  description = "Cosmos DB primary MongoDB connection string"
+  value       = azurerm_cosmosdb_account.this.primary_mongodb_connection_string
   sensitive   = true
 }
 
