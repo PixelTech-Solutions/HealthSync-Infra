@@ -51,6 +51,8 @@ module "front_door" {
     }
   }
 
+  enable_spa_rewrite = true
+
   routes = {
     api-route = {
       origin_group_key    = "api"
@@ -63,6 +65,7 @@ module "front_door" {
       origin_keys         = ["frontend-origin"]
       patterns_to_match   = ["/*"]
       forwarding_protocol = "HttpsOnly"
+      rule_set_key        = "spa_rewrite"
     }
   }
 }
