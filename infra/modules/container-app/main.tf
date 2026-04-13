@@ -28,7 +28,6 @@ resource "azurerm_container_app" "this" {
     external_enabled = var.external_enabled
     target_port      = var.target_port
     transport        = "auto"
-    allow_insecure   = var.allow_insecure
 
     traffic_weight {
       latest_revision = true
