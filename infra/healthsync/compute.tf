@@ -78,6 +78,7 @@ module "ca_api_gateway" {
     { name = "NOTIFICATION_SERVICE_URL", value = local.service_urls.notification },
     { name = "PAYMENT_SERVICE_URL", value = local.service_urls.payment },
     { name = "FRONTEND_URL", value = "https://${module.front_door.endpoint_hostname}" },
+    { name = "STATIC_WEBSITE_URL", value = module.storage_account.primary_web_endpoint != null ? trimsuffix(module.storage_account.primary_web_endpoint, "/") : "" },
   ]
 }
 
