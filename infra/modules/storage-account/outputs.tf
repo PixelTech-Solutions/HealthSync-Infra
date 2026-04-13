@@ -10,12 +10,12 @@ output "name" {
 
 output "primary_web_host" {
   description = "Primary static website hostname"
-  value       = var.enable_static_website ? azurerm_storage_account_static_website.this[0].hostname : null
+  value       = azurerm_storage_account.this.primary_web_host
 }
 
 output "primary_web_endpoint" {
   description = "Primary static website endpoint URL"
-  value       = var.enable_static_website ? "https://${azurerm_storage_account_static_website.this[0].hostname}/" : null
+  value       = azurerm_storage_account.this.primary_web_endpoint
 }
 
 output "primary_blob_endpoint" {
