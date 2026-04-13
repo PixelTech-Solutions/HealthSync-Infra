@@ -10,6 +10,10 @@ resource "azurerm_postgresql_flexible_server" "this" {
   zone                          = var.zone
   public_network_access_enabled = var.public_network_access_enabled
   tags                          = var.tags
+
+  lifecycle {
+    ignore_changes = [zone]
+  }
 }
 
 resource "azurerm_postgresql_flexible_server_database" "this" {
