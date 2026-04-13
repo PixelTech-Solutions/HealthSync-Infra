@@ -69,9 +69,9 @@ resource "azurerm_cdn_frontdoor_rule" "spa_rewrite" {
 
   conditions {
     url_file_extension_condition {
-      operator         = "GreaterThan"
-      match_values     = ["0"]
-      negate_condition = true
+
+      operator     = "LessThanOrEqual"
+      match_values = ["0"]
     }
   }
 
