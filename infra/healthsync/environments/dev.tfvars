@@ -27,4 +27,4 @@ acs_data_location = "United States"
 
 # ── Container Apps ────────────────────────────────────────────────────────────
 # Set to false after pushing real images to ACR
-use_placeholder_image = true
+use_placeholder_image = false
