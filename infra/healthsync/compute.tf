@@ -95,6 +95,7 @@ module "ca_doctor_service" {
   image_name                   = "doctor-service"
   target_port                  = 3002
   external_enabled             = false
+  allow_insecure               = true
   min_replicas                 = 0
   max_replicas                 = 3
   tags                         = local.common_tags
@@ -139,6 +140,7 @@ module "ca_appointment_service" {
   image_name                   = "appointment-service"
   target_port                  = 3003
   external_enabled             = false
+  allow_insecure               = true
   min_replicas                 = 0
   max_replicas                 = 3
   tags                         = local.common_tags
@@ -181,6 +183,7 @@ module "ca_patient_service" {
   image_name                   = "patient-service"
   target_port                  = 3001
   external_enabled             = false
+  allow_insecure               = true
   min_replicas                 = 0
   max_replicas                 = 3
   tags                         = local.common_tags
@@ -216,6 +219,7 @@ module "ca_prescription_service" {
   image_name                   = "healthsync-prescription-service"
   target_port                  = 3004
   external_enabled             = false
+  allow_insecure               = true
   min_replicas                 = 0
   max_replicas                 = 3
   tags                         = local.common_tags
@@ -253,6 +257,7 @@ module "ca_payment_service" {
   image_name                   = "payment-service"
   target_port                  = 3006
   external_enabled             = false
+  allow_insecure               = true
   min_replicas                 = 0
   max_replicas                 = 3
   tags                         = local.common_tags
@@ -296,6 +301,7 @@ module "ca_notification_service" {
   image_name                   = "notification-service"
   target_port                  = 3005
   external_enabled             = false
+  allow_insecure               = true
   min_replicas                 = 1
   max_replicas                 = 3
   tags                         = local.common_tags

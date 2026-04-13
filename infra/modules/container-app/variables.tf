@@ -68,6 +68,12 @@ variable "external_enabled" {
   default     = false
 }
 
+variable "allow_insecure" {
+  description = "Allow insecure (HTTP) traffic to the container app"
+  type        = bool
+  default     = false
+}
+
 variable "min_replicas" {
   description = "Minimum number of replicas"
   type        = number
