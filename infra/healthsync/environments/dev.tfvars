@@ -7,6 +7,9 @@ project_name = "healthsyncc"
 # ── ACR ───────────────────────────────────────────────────────────────────────
 acr_sku = "Basic"
 
+# ── Cosmos DB ─────────────────────────────────────────────────────────────────
+cosmos_location = "westus2"
+
 # ── PostgreSQL ────────────────────────────────────────────────────────────────
 postgresql_location       = "northeurope"
 postgresql_admin_username = "healthsyncadmin"

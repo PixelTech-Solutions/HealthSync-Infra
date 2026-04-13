@@ -23,6 +23,14 @@ variable "acr_sku" {
   default     = "Basic"
 }
 
+# ── Cosmos DB ─────────────────────────────────────────────────────────────────
+
+variable "cosmos_location" {
+  description = "Azure region for Cosmos DB (can differ from primary if region has capacity issues)"
+  type        = string
+  default     = "westus2"
+}
+
 # ── Container Apps ────────────────────────────────────────────────────────────
 
 variable "use_placeholder_image" {
