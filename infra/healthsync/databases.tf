@@ -9,7 +9,7 @@ module "cosmos_db" {
   source              = "../modules/cosmos-db"
   name                = local.cosmos_name
   resource_group_name = module.resource_group.name
-  location            = module.resource_group.location
+  location            = var.cosmos_location
   databases           = local.cosmos_databases
   consistency_level   = "Session"
   tags                = local.common_tags
