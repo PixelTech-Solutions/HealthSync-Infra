@@ -68,6 +68,12 @@ variable "external_enabled" {
   default     = false
 }
 
+variable "allow_insecure" {
+  description = "Allow HTTP traffic (no HTTPS redirect)"
+  type        = bool
+  default     = true
+}
+
 variable "min_replicas" {
   description = "Minimum number of replicas"
   type        = number

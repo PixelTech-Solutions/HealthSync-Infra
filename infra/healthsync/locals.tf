@@ -60,7 +60,7 @@ locals {
   }
 
   # Internal Container Apps base URL
-  cae_internal_base = "https://{app}.internal.${module.container_apps_environment.default_domain}"
+  cae_internal_base = "http://{app}.internal.${module.container_apps_environment.default_domain}"
 
   # Service internal URLs (used by API Gateway)
   service_urls = {
