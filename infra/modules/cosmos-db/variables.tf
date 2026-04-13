@@ -30,3 +30,9 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "mongo_server_version" {
+  description = "MongoDB server version for Cosmos DB (3.2, 3.6, 4.0, 4.2)"
+  type        = string
+  default     = "4.2"
+}

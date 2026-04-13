@@ -1,9 +1,10 @@
 resource "azurerm_cosmosdb_account" "this" {
-  name                = var.name
-  location            = var.location
-  resource_group_name = var.resource_group_name
-  offer_type          = "Standard"
-  kind                = "MongoDB"
+  name                 = var.name
+  location             = var.location
+  resource_group_name  = var.resource_group_name
+  offer_type           = "Standard"
+  kind                 = "MongoDB"
+  mongo_server_version = var.mongo_server_version
 
   capabilities {
     name = "EnableMongo"
