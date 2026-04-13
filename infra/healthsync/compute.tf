@@ -123,6 +123,7 @@ module "ca_doctor_service" {
     { name = "REDIS_HOST", value = module.redis.hostname },
     { name = "REDIS_PORT", value = tostring(module.redis.ssl_port) },
     { name = "REDIS_PASSWORD", secret_name = "redis-password" },
+    { name = "REDIS_TLS", value = "true" },
   ]
 }
 
