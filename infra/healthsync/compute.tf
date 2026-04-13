@@ -166,6 +166,7 @@ module "ca_appointment_service" {
     { name = "DB_NAME", value = "healthsync_appointments" },
     { name = "DB_SSL", value = "true" },
     { name = "SERVICE_BUS_CONNECTION_STRING", secret_name = "servicebus-connection-string" },
+    { name = "SERVICEBUS_CONNECTION_STRING", secret_name = "servicebus-connection-string" },
   ]
 }
 
@@ -281,6 +282,7 @@ module "ca_payment_service" {
     { name = "DB_SSL", value = "true" },
     { name = "STRIPE_SECRET_KEY", secret_name = "stripe-secret-key" },
     { name = "FRONTEND_URL", value = "https://${module.front_door.endpoint_hostname}" },
+    { name = "NOTIFICATION_SERVICE_URL", value = local.service_urls.notification },
   ]
 }
 
@@ -319,7 +321,9 @@ module "ca_notification_service" {
     { name = "PORT", value = "3005" },
     { name = "MONGO_URI", secret_name = "cosmos-uri-notifications" },
     { name = "SERVICE_BUS_CONNECTION_STRING", secret_name = "servicebus-connection-string" },
+    { name = "SERVICEBUS_CONNECTION_STRING", secret_name = "servicebus-connection-string" },
     { name = "ACS_CONNECTION_STRING", secret_name = "acs-connection-string" },
     { name = "ACS_SENDER_ADDRESS", value = module.communication_services.sender_address },
+    { name = "ACS_SENDER_EMAIL", value = module.communication_services.sender_address },
   ]
 }
