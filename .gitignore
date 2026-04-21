@@ -26,3 +26,6 @@ Thumbs.db
 *.pem
 *.key
 secrets.auto.tfvars
+
+# Generated files
+*.pdf
