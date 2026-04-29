@@ -4,7 +4,6 @@
 > All 21 Azure resources managed via reusable Terraform modules.
 
 ## Architecture
-
 ```
 infra/
   modules/                          # Reusable Terraform modules
@@ -41,7 +40,6 @@ infra/
 ```
 
 ## Azure Resources Created (21)
-
 | # | Resource | Module | Naming |
 |---|----------|--------|--------|
 | 1 | Resource Group | `resource-group` | `rg-healthsync-{env}` |
